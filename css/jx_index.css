@@ -127,6 +127,11 @@ img {
     border: 0;
     -ms-interpolation-mode: bicubic
 }
+
+address,em {
+    font-style: normal;
+    font-weight: normal;
+}
 svg:not(:root) {
     overflow: hidden
 }
@@ -184,6 +189,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     border: 0;
     padding: 0
 }
+
 textarea {
     overflow: auto;
     vertical-align: top
@@ -407,7 +413,7 @@ li{
 .main-body,.page-artlist {
     background-repeat: no-repeat;
     background-position: center top;
-    padding-top: 200px
+    padding-top: 280px
 }
 
 .dw-mod-nav .mod-hd {
@@ -684,6 +690,8 @@ li{
     color: #fff;
     width: 100px;
     line-height: 32px;
+
+
 }
 
 .ziliao-kuan .ziliao-kuan-body{
@@ -727,35 +735,37 @@ li{
     }
 
  .mod-pic .lanmu-title  h2 {
-    font-size: 18px;
     font-weight: 700;
-    float: left;
     color: #333;
-    margin-right: 40px;
-    line-height: 24px;
-    height: 24px;
+    margin-right: 40px;   
     font-family: PingFang sc,"Helvetica Neue",Helvetica,Tahoma,Arial,"Liberation Sans","Hiragino Sans GB","Source Han Sans CN","Source Han Sans SC","Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Zen Hei","ST Heiti",SimHei,"WenQuanYi Zen Hei Sharp",sans-serif;
-    position: relative
-
+    position: relative;
+    height: 32px;
+    line-height: 32px;
+    font-size: 16px;
+    float: left;
+    *display: inline;
+    margin-bottom: -1px;
+    border-bottom: 2px solid #00a786
 }
 
+  .mod-pic .lanmu-title .more {
+    float: right;
+    display: inline;
+    margin-top: 4px;
+    margin-right: 4px;
 
-
-
- h2 i {
-    position: absolute;
-    bottom: -12px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #f04545
 }
 
 .mod-pic .lanmu-title .qiehuan-title{
     *zoom:1;
-    float: left;
+    float: right;   
+    display: inline;
+    margin-top: 4px;
+    *zoom:1
 
 }
+
 
 
 .mod-pic .lanmu-title .qiehuan-title .trigger {
@@ -765,6 +775,20 @@ li{
     margin-right: 20px
 }
 
+
+.qiehuan-title  li{
+    display: inline-block;
+    *display: inline;
+    *zoom:1;height: 25px;
+    line-height: 25px;
+    padding: 0 20px;
+    margin: 0;
+    color: #333;
+    width: auto;
+    position: relative;
+    overflow: visible;
+    font-size: 14px
+}
 .mod-pic .lanmu-title .qiehuan-title .trigger a {
     color: #333;
     display: block;
@@ -774,21 +798,38 @@ li{
     cursor: pointer
 }
 
+.mod-pic .lanmu-title .qiehuan-title .hover {
+   color: #fff;
+    background-color: #00a786;
+}
+
 .mod-pic .lanmu-title .qiehuan-title .trigger a:hover {
     text-decoration: none
 }
 
-.mod-pic .lanmu-title .qiehuan-title .hover {
-    background: #f04545;
-    color: #FFF
-}
 
+
+
+.lanmu-title .qiehuan-title li.hover::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 0;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #00a786 transparent transparent;
+    font-size: 0;
+    line-height: 0;
+    margin-left: -4px
+}
 
 .mod-pic .pic-con {
     letter-spacing: -0.34em;
-    word-spacing: -0.34em;
+    /*word-spacing: -0.34em;*/
     padding-top: 10px;
-    margin-left: -7px;
+    margin-left: -15px;
 }
 
 @media all and (-webkit-min-device-pixel-ratio: 1) {
@@ -804,7 +845,7 @@ li{
     letter-spacing: normal;
     word-spacing: normal;
     overflow: hidden;
-    margin: 0 0 10px 22px;
+    margin: 0 0 10px 21px;
     width: 138px
 }
 
@@ -850,7 +891,7 @@ li{
     border-bottom: 1px solid #EAEAEA
 }
 
-.lanmu390 .mod-head h3{
+.lanmu390 .mod-head h2{
     height: 32px;
     line-height: 32px;
     font-size: 16px;
@@ -873,7 +914,7 @@ li{
 .lanmu-list li{
     overflow: hidden;
     height: 25px;
-    line-height: 24px;      
+    line-height: 24px;
     font-size: 14px;
 
 }
@@ -899,7 +940,6 @@ li{
     position: relative;
     z-index: 5;
     padding-right: 16px;
- 
 }
 
 .friend .label em {
@@ -957,19 +997,214 @@ li{
     margin-bottom: 7px
 
 }
+
+
+html {
+    font-size: 12px;
+    overflow-y: scroll;
+    font: 12px/1.5 PingFang sc,"Helvetica Neue",Helvetica,Tahoma,Arial,SimSun,TW-Sung,"WenQuanYi Bitmap Song","AR PL UMing CN","AR PL UMing HK","AR PL UMing TW","AR PL UMing TW MBE",serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased
+}
+/*文章页部分开始*/
+
+.page{
+    background: #fff;
+    font-size: 14px;
+}
+
+
+
+/*面包屑导航*/
+.breadcrumbs-body {
+    overflow: hidden;
+    padding: 0 10px;
+    height: 42px;
+    line-height: 40px;
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 16px;
+  
+
+}
+.breadcrumbs-body a {
+   
+}
+.breadcrumbs-body span {
+    font-family: \5b8b\4f53;
+    margin: 0 5px;
+}
+
+
+#article h1 {
+    text-align: center;
+    height: 50px;
+    font: 24px/70px \5fae\8f6f\96c5\9ed1;
+    overflow: hidden; 
+    line-height: 30px;
+
+    
+}
+
+
+#article address {
+    text-align: center;
+    color: #41002C;
+    line-height: 30px;    
+    padding-bottom: 10px;
+    font-size: 12px;
+    overflow: hidden;
+    border-bottom: 1px dashed #BFBFBF;
+
+}
+
+#article address a {
+    color: #BA0100;
+}
+
+#article address span {
+    margin: 0 4px;
+}
+
+#article blockquote.summary {
+    margin: 10px auto;
+    padding: 5px 10px;
+    border: 1px #D5CBDE solid;
+    background: #eceef1;
+    width: 90%;
+}
+
+#article blockquote.summary p {
+    line-height: 20px;
+}
+
+#text {
+    overflow: hidden;
+    font-size: 14px;
+}
+
+#text p {
+    margin-top: 0.7em;
+}
+
+#text a {
+    color: #00f;
+    /*text-decoration:underline;*/
+}
+
+#text a:hover {
+    color: #f00;
+}
+
+#text img {
+    display: inline;
+    padding: 2px;
+    border: 1px #CCCCCC solid;
+    margin: 5px;
+    max-width: 1100px;
+    _width: expression(this.clientWidth>1100?"1100px":"auto");
+}
+
+#text table {
+    margin: 0px auto;
+}
+
+#text td {
+    padding: 2px;
+}
+
+
+/*论坛原帖地址*/
+.bbs-link {
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.bbs-link a {
+    color: #00f;
+    text-decoration: underline;
+}
+
+.bbs-link a:hover {
+    color: #f00;
+}
+
+/*分页代码*/
+#pageNum {
+    text-align: center;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+#pageNum span {
+}
+
+#pageNum a {
+    color: #000;
+    text-decoration: none;
+    padding: 2px 4px;
+    margin: 0 1px;
+    border: 1px solid #321D00;
+    background: #FFFFFF;
+}
+
+#pageNum a:hover {
+    color: #000000;
+    background: #FFA600;
+}
+
+#pageNow a {
+    color: #000000;
+    background: #FFA600;
+    font-weight: bold;
+}
+
+/*相关链接与新闻*/
+.xiangguan-news {
+    margin: 20px 0 20px 0;
+    display: block;
+    width: 100%;
+    font-size: 12px;
+}
+
+.xiangguan-news h3 {
+    line-height: 24px;
+    padding: 0 10px;
+    background: #EDEDED;
+}
+
+.xiangguan-news .art {
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.xiangguan-news li {
+    float: left;
+    width: 280px;
+    height: 24px;
+    overflow: hidden;
+    background: url(../image/bgs.png) no-repeat -644px -130px;
+    padding-left: 15px;
+    line-height: 24px;
+}
+
+
+/*全局属性*/
 /*------------*/
 
 .grid-float-left{
     overflow: hidden;
     float: left;
-  
+
 }
 
 
 .grid-float-right {
     overflow: hidden;
     float: right;
-  
+
 }
 
 .grid-col-1200{
@@ -981,6 +1216,13 @@ li{
 
 .grid-col-780{
     width: 780px;
+}
+
+.grid-col-790{
+    width: 790px;
+}
+.grid-col-800{
+    width: 800px;
 }
 
 .grid-col-390{
@@ -996,10 +1238,12 @@ li{
     height: 10px;
 }
 
-html {
-    font-size: 12px;
-    overflow-y: scroll;
-    font: 12px/1.5 PingFang sc,"Helvetica Neue",Helvetica,Tahoma,Arial,SimSun,TW-Sung,"WenQuanYi Bitmap Song","AR PL UMing CN","AR PL UMing HK","AR PL UMing TW","AR PL UMing TW MBE",serif;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased
-}
+.fr { display: inline; float: right !important; }
+.fl { display: inline; float: left !important; }
+.ml10 { margin-left: 10px; }
+.mr10 { margin-right: 10px; }
+.mb10 { margin-bottom: 10px; }
+.clear10 { clear: both; overflow: hidden; height: 10px; }
+.clearfix{zoom:1;}
+.clearfix:before,.clearfix:after{content:'\0020';display:block;overflow:hidden;visibility:hidden;width:0;height:0;}
+.clearfix:after{clear:both;}
